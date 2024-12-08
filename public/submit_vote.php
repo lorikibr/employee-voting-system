@@ -17,6 +17,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $message = $vote->submitVote($category, $nominee, $comment, $voterId);
     echo $message;
+    $_SESSION['vote_message'] = "Your vote has been submitted successfully!";
+    header('Location: vote.php');
+    exit;
 }
 
 ?>

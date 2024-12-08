@@ -37,5 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     </form>
     <a href="index.php">Back to Main Menu</a>
+
 </body>
 </html>

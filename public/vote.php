@@ -42,9 +42,15 @@ $employees = getEmployeesExcept($conn, $_SESSION['user_id']);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vote</title>
     <link rel="stylesheet" href="../assets/css/style.css">
+
 </head>
 <body>
     <h1>Vote for Employees</h1>
+    <?php if (isset($_SESSION['vote_message'])): ?>
+    <p><?= $_SESSION['vote_message']; ?></p>
+    <?php unset($_SESSION['vote_message']); ?>
+<?php endif; ?>
+
 
     <!-- Error handling for missing data-->
     <?php if (empty($categories)): ?>
