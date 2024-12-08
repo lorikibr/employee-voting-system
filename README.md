@@ -28,7 +28,7 @@ First, clone the repository to your local machine:
 
 ```bash
 git clone https://github.com/lorikibr/employee-voting-system.git
-
+```
 
 ### 2. Set Up XAMPP
 
