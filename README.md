@@ -1,4 +1,3 @@
-```markdown
 # Employee Voting System
 
 This is a **PHP-based Employee Voting System** that allows employees to vote for their peers in different categories and track the votes. The system is built using **PHP (OOP)** and **MySQL**, and uses **XAMPP (Apache and MySQL)** for local development.
@@ -29,7 +28,7 @@ First, clone the repository to your local machine:
 
 ```bash
 git clone https://github.com/lorikibr/employee-voting-system.git
-```
+
 
 ### 2. Set Up XAMPP
 
