@@ -85,11 +85,10 @@ CREATE TABLE `vote_counts` (
 ### 4. Access the Application
 
 1. Place the project files into the **htdocs** directory in your XAMPP installation (`C:\xampp\htdocs\`).
-2. Open your browser and navigate to `http://localhost/employee-voting-system/`.
+2. Open your browser and navigate to `http://localhost/voting_system/public/index.php`.
 3. You should see the homepage where you can log in or register as an employee.
 4. Once logged in, employees can vote for their peers in various categories and view the results.
-
-Here’s the project structure in the format you requested:
+   
 
 ## Project Structure
 
@@ -110,7 +109,115 @@ Here’s the project structure in the format you requested:
 
 - `templates/header.php`: Reusable header template for the pages.
 
-
 ## Troubleshooting
 
 - **Apache or MySQL not starting**: Ensure that no other processes are using ports 80 (Apache) or 3306 (MySQL). You can change the ports in the XAMPP control panel if needed.
+
+---
+
+## HTTP Requests and API Endpoints
+
+### 1. **POST /login**
+   - **URL**: `/login.php`
+   - **Method**: `POST`
+   - **Parameters**:
+     - `email`: The email address of the employee.
+     - `password`: The password for authentication.
+   - **Response**: 
+     - On successful login, the user is redirected to `index.php`.
+     - On failure, an error message is displayed.
+
+   #### Example Request:
+   ```http
+   POST /login.php
+   Content-Type: application/x-www-form-urlencoded
+   Body: 
+     email=user@example.com
+     password=securepassword
+   ```
+
+   #### Example Response:
+   ```html
+   <p>Invalid email or password.</p>
+   ```
+
+### 2. **POST /register**
+   - **URL**: `/register.php`
+   - **Method**: `POST`
+   - **Parameters**:
+     - `name`: Full name of the employee.
+     - `email`: The email address for account creation.
+     - `password`: The password for the employee’s account.
+   - **Response**: 
+     - On successful registration, a success message is displayed.
+     - If registration fails, an error message is shown.
+
+   #### Example Request:
+   ```http
+   POST /register.php
+   Content-Type: application/x-www-form-urlencoded
+   Body: 
+     name=John Doe
+     email=john.doe@example.com
+     password=securepassword
+   ```
+
+   #### Example Response:
+   ```html
+   <p>Registration successful!</p>
+   ```
+
+### 3. **POST /submit_vote**
+   - **URL**: `/submit_vote.php`
+   - **Method**: `POST`
+   - **Parameters**:
+     - `category`: The category the vote is for (e.g., "Team Player").
+     - `nominee`: The employee being voted for.
+     - `comment`: A comment accompanying the vote.
+   - **Response**:
+     - Upon successful vote submission, the user is redirected to the vote page with a success message.
+     - If an error occurs, an error message is displayed.
+
+   #### Example Request:
+   ```http
+   POST /submit_vote.php
+   Content-Type: application/x-www-form-urlencoded
+   Body: 
+     category=Team Player
+     nominee=2
+     comment=John is always there to help the team!
+   ```
+
+   #### Example Response:
+   ```html
+   <p>Your vote has been submitted successfully!</p>
+   ```
+
+### 4. **GET /results**
+   - **URL**: `/results.php`
+   - **Method**: `GET`
+   - **Parameters**: None.
+   - **Response**: 
+     - Displays a table of the voting results, including vote counts for each nominee per category, and the most active voters.
+
+   #### Example Request:
+   ```http
+   GET /results.php
+   ```
+
+   #### Example Response:
+   ```html
+   <h1>Voting Results</h1>
+   <table>
+     <tr><th>Nominee</th><th>Votes</th></tr>
+     <tr><td>John Doe</td><td>5 votes</td></tr>
+   </table>
+   ```
+
+---
+
+## Future Improvements
+
+While I didn't use AJAX and JavaScript in this project due to my limited experience with them, I am eager to explore and implement these technologies in future projects. I believe integrating AJAX could have greatly enhanced the user experience by making the application more dynamic, allowing for better voting updates without page reloads. Additionally, incorporating JavaScript could have improved the client-side interaction and realtime feedback for users.
+
+I am very interested in expanding my knowledge of these technologies and am excited about the opportunity to implement them in future projects. I am ready to learn and work with JavaScript, jQuery, and AJAX, as I understand their importance in creating better and more responsive web applications.
